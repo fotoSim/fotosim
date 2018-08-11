@@ -32,8 +32,7 @@ function getImageSource(index) {
 
 function getNextImage() {
   let imageSrc = getImageSource(imageIndex);
-  imageIndex++;
-  imageIndex = imageIndex % numOfImages;
+  imageIndex = (imageIndex + 1) % numOfImages;
   return imageSrc;
 }
 
