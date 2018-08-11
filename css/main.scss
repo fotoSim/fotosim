@@ -1,0 +1,282 @@
+// Animation keyframes
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pop {
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes imageDisappear1 {
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes imageAppear1 {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes imageDisappear2 {
+  100% {
+    transform: scalex(0);
+    opacity: 0;
+  }
+}
+
+@keyframes imageAppear2 {
+  0% {
+    transform: scalex(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scalex(1);
+    opacity: 1;
+  }
+}
+
+@keyframes imageDisappear3 {
+  100% {
+    transform: translateX(+100%);
+    opacity: 0;
+  }
+}
+
+@keyframes imageAppear3 {
+  0% {
+    transform: translateX(+100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+$animationTime: 1.5s;
+
+// Animation Classes
+.slideOutRight {
+  animation: imageDisappear3 $animationTime ease-in-out;
+}
+.slideOutLeft {
+  animation: imageDisappear1 $animationTime ease-in-out;
+}
+.scaleOutWidth {
+  animation: imageDisappear2 $animationTime ease-in-out;
+}
+.slideInRight {
+  animation: imageAppear3 $animationTime ease-in-out;
+}
+.slideInLeft {
+  animation: imageAppear1 $animationTime ease-in-out;
+}
+.scaleInWidth {
+  animation: imageAppear2 $animationTime ease-in-out;
+}
+
+// Color Palette
+$colorA: #3b476c;
+$colorB: #373662;
+$colorC: #888888;
+$colorD: #366261;
+$colorE: #222222;
+
+// Clear all margins and padding. Set border-box sizing so margins and padding are included in box size.
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Body wide style
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+  background: linear-gradient(to bottom, $colorB, $colorC, $colorD);
+}
+
+// Under Construction banner
+#underConstruction {
+  background: yellow;
+  color: black;
+  padding: 8px;
+  border: 2px red solid;
+  text-align: center;
+}
+
+// Main site header bar
+header {
+  display: grid;
+  grid-template-columns: 128px max-content max-content 1fr;
+  background: linear-gradient(to right, white, $colorB);
+  align-items: center;
+  clip-path: ellipse(100% 100% at 25% 0%);
+
+  img {
+    width: 128px;
+    height: 128px;
+    padding: 14px;
+    animation: spin 66.6s linear infinite;
+  }
+
+  h1 {
+    font-size: 4rem;
+
+    &.foto {
+      color: $colorC;
+      font-weight: 300;
+    }
+
+    &.sim {
+      color: $colorE;
+      font-weight: 500;
+    }
+  }
+
+  nav {
+    align-self: baseline;
+    justify-self: end;
+    margin-top: 14px;
+    margin-right: 14px;
+
+    a {
+      margin-left: 1em;
+      font-size: 1.4em;
+      font-weight: 300;
+      color: #aaaaaa;
+    }
+  }
+}
+
+// Links
+a {
+  text-decoration: none;
+  color: $colorC;
+  transition: color 0.4s ease-in;
+
+  &.current,
+  &:hover {
+    color: white;
+  }
+
+  &:active {
+    text-shadow: 0px 0px 4px white;
+  }
+}
+
+// Image gallery showcase
+figure {
+  overflow-x: hidden;
+  padding: 1.5% 1%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-around;
+
+  img {
+    clip-path: polygon(4% 0, 100% 0, 96% 100%, 0 100%);
+    max-width: 100%;
+  }
+}
+
+.showcaseBase {
+  height: 128px;
+  background-color: #f4f4f4;
+  clip-path: ellipse(100% 100% at 75% 100%);
+}
+
+// Main site content
+main {
+  position: relative;
+  top: -80px;
+  margin-bottom: -80px;
+  background-color: #f4f4f4;
+  padding: 0em 1em 5em 1em;
+
+  h1 {
+    text-align: center;
+    animation: pop 1s ease-in-out 0s infinite forwards;
+    color: $colorC;
+  }
+
+  p {
+    color: $colorC;
+    padding: 4em 8em;
+    line-height: 1.7em;
+    text-align: justify;
+
+    &:nth-child(odd) {
+      color: darkblue;
+      padding: 4em 16em;
+      text-align: center;
+    }
+  }
+}
+
+// Information table
+.information {
+  background: linear-gradient(to right, black, $colorD);
+  color: $colorC;
+  clip-path: ellipse(100% 100% at 25% 0%);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 40px;
+  grid-column-gap: 2em;
+  list-style-type: none;
+  padding: 2em;
+
+  li {
+    // justify-self: center;
+    font-weight: 300;
+    font-size: 1em;
+    letter-spacing: 0.02em;
+    line-height: 1.4em;
+    list-style-type: none;
+
+    h1 {
+      padding-bottom: 1em;
+      color: white;
+      font-weight: 300;
+      font-size: 2em;
+    }
+
+    &.social {
+      justify-self: auto;
+      ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 64px);
+        grid-template-rows: repeat(auto-fit, 64px);
+        grid-gap: 16px;
+        justify-content: left;
+
+        li {
+          a:hover {
+            img {
+              animation: pop 0.4s ease-out 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  height: 48px;
+  color: white;
+  display: grid;
+  text-align: center;
+  align-items: center;
+}
