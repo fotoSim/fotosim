@@ -24,6 +24,11 @@ function main() {
 
   // Start gallery showcase animation immediately
   startAnimation();
+
+  // Reload page every 10 seconds
+  let reloadIntervalID = window.setInterval(() => {
+    location.reload(true);
+  }, timeout * 3);
 }
 
 function getImageSource(index) {
@@ -65,59 +70,3 @@ function imagesAppeared() {
   images[0].removeEventListener("animationend", imagesAppeared);
   startAnimation();
 }
-// function imgCenterDisappeared(event) {
-//   imageDisappeared(event, imgCenterDisappeared);
-//   nextImageToDisappear(document.getElementById("imgRight"), imgRightDisappeared);
-// }
-
-// function imgLeftDisappeared(event) {
-//   imageDisappeared(event, imgLeftDisappeared);
-//   nextImageToDisappear(document.getElementById("imgCenter"), imgCenterDisappeared);
-// }
-
-// function imgRightDisappeared(event) {
-//   imageDisappeared(event, imgRightDisappeared);
-//   nextImageToAppear(document.getElementById("imgLeft"), imgLeftAppeared);
-// }
-
-// function imgLeftAppeared(event) {
-//   imageAppeared(event, imgLeftAppeared);
-//   nextImageToAppear(document.getElementById("imgCenter"), imgCenterAppeared);
-// }
-
-// function imgCenterAppeared(event) {
-//   imageAppeared(event, imgCenterAppeared);
-//   nextImageToAppear(document.getElementById("imgRight"), imgRightAppeared);
-// }
-
-// function imgRightAppeared(event) {
-//   imageAppeared(event, imgRightAppeared);
-//   setTimeout(startAnimation, timeout);
-// }
-
-// function imageAppeared(event, imgFunction) {
-//   event.currentTarget.classList.remove("imgAppear");
-//   event.currentTarget.removeEventListener("animationend", imgFunction, false);
-// }
-
-// function imageDisappeared(event, imgFunction) {
-//   event.currentTarget.style.display = "none";
-//   event.currentTarget.classList.remove("imgDisappear");
-//   event.currentTarget.removeEventListener("animationend", imgFunction, false);
-//   event.currentTarget.src = getNextImageSource();
-// }
-
-// function nextImageToDisappear(image, imgFunction) {
-//   image.addEventListener("animationend", imgFunction, { passive: true });
-//   image.classList.add("imgDisappear");
-// }
-
-// function nextImageToAppear(image, imgFunction) {
-//   image.addEventListener("animationend", imgFunction, { passive: true });
-//   image.classList.add("imgAppear");
-//   image.style.display = "block";
-// }
-
-// function startAnimation() {
-//   nextImageToDisappear(document.getElementById("imgLeft"), imgLeftDisappeared);
-// }
