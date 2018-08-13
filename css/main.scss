@@ -179,19 +179,23 @@ a {
 
 // Image gallery showcase
 figure {
+  position: relative;
+  top: -44px;
+  z-index: -1;
   overflow-x: hidden;
-  padding: 1.5% 1%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  justify-content: space-around;
+  justify-content: center;
 
   img {
-    clip-path: polygon(4% 0, 100% 0, 96% 100%, 0 100%);
-    max-width: 100%;
+    // clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+    justify-self: center;
   }
 }
 
 .showcaseBase {
+  position: relative;
+  top: -88px;
   height: 128px;
   background-color: #f4f4f4;
   clip-path: ellipse(100% 100% at 75% 100%);
@@ -200,8 +204,8 @@ figure {
 // Main site content
 main {
   position: relative;
-  top: -80px;
-  margin-bottom: -80px;
+  top: -166px;
+  margin-bottom: -166px;
   background-color: #f4f4f4;
   padding: 0em 1em 5em 1em;
 

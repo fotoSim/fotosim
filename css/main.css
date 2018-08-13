@@ -274,23 +274,27 @@ a:active {
 }
 
 figure {
+  position: relative;
+  top: -44px;
+  z-index: -1;
   overflow-x: hidden;
-  padding: 1.5% 1%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 figure img {
-  -webkit-clip-path: polygon(4% 0, 100% 0, 96% 100%, 0 100%);
-          clip-path: polygon(4% 0, 100% 0, 96% 100%, 0 100%);
-  max-width: 100%;
+  -ms-grid-column-align: center;
+      justify-self: center;
 }
 
 .showcaseBase {
+  position: relative;
+  top: -88px;
   height: 128px;
   background-color: #f4f4f4;
   -webkit-clip-path: ellipse(100% 100% at 75% 100%);
@@ -299,8 +303,8 @@ figure img {
 
 main {
   position: relative;
-  top: -80px;
-  margin-bottom: -80px;
+  top: -166px;
+  margin-bottom: -166px;
   background-color: #f4f4f4;
   padding: 0em 1em 5em 1em;
 }
