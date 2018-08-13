@@ -1,9 +1,10 @@
 let imageIndex = 0;
 const numOfImages = 15;
-const timeout = 5000;
+const timeout = 10000;
 
 let figure = document.querySelector("figure");
 let images = figure.children;
+let imageIndexArray = new Array();
 
 window.onload = main;
 
@@ -17,18 +18,8 @@ function main() {
     { passive: true }
   );
 
-  // Initialise gallery images
-  images[0].src = getNextImage();
-  images[1].src = getNextImage();
-  images[2].src = getNextImage();
-
   // Start gallery showcase animation immediately
   startAnimation();
-
-  // Reload page every 10 seconds
-  let reloadIntervalID = window.setInterval(() => {
-    location.reload(true);
-  }, timeout * 3);
 }
 
 function getImageSource(index) {
@@ -39,6 +30,25 @@ function getNextImage() {
   let imageSrc = getImageSource(imageIndex);
   imageIndex = (imageIndex + 1) % numOfImages;
   return imageSrc;
+}
+
+function getRandomImage() {
+  // If image index array is empty, fill it with integers 0..numOfImages
+  if (imageIndexArray.length == 0) {
+    for (let i = 0; i < numOfImages; i++) {
+      imageIndexArray.push(i);
+    }
+  }
+
+  // Get a random index into the imageIndexArray and get the integer there
+  const randomIndex = Math.floor(Math.random() * imageIndexArray.length);
+  const index = imageIndexArray[randomIndex];
+
+  // Filter imageIndexArray to remove chosen index
+  imageIndexArray = imageIndexArray.filter(element => element != index);
+
+  // return filename for random index
+  return getImageSource(index);
 }
 
 function startAnimation() {
@@ -54,9 +64,9 @@ function animationDisappear() {
 }
 
 function imagesDisappeared() {
-  images[0].src = getNextImage();
-  images[1].src = getNextImage();
-  images[2].src = getNextImage();
+  images[0].src = getRandomImage(); // getNextImage();
+  images[1].src = getRandomImage(); // getNextImage();
+  images[2].src = getRandomImage(); // getNextImage();
 
   images[0].className = "slideInRight";
   images[1].className = "scaleInWidth";

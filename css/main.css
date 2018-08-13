@@ -252,7 +252,7 @@ header nav {
 }
 
 header nav a {
-  margin-left: 1em;
+  margin-left: 0.7em;
   font-size: 1.4em;
   font-weight: 300;
   color: #aaaaaa;
@@ -276,20 +276,32 @@ a:active {
 figure {
   position: relative;
   top: -44px;
-  z-index: -1;
   overflow-x: hidden;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 810px 1fr;
+      grid-template-columns: 1fr 810px 1fr;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-figure img {
-  -ms-grid-column-align: center;
-      justify-self: center;
+figure img:nth-child(1) {
+  -ms-grid-column-align: end;
+      justify-self: end;
+  z-index: -2;
+}
+
+figure img:nth-child(2) {
+  z-index: -1;
+  -webkit-box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+figure img:nth-child(3) {
+  -ms-grid-column-align: start;
+      justify-self: start;
+  z-index: -2;
 }
 
 .showcaseBase {
