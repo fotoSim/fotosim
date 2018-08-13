@@ -1,15 +1,13 @@
-let imageIndex = 0;
-const numOfImages = 15;
-const timeout = 10000;
-
-let figure = document.querySelector("figure");
-let images = figure.children;
 let imageIndexArray = new Array();
+
+const numOfImages = 15;
+const timeout = 2500;
+const images = document.querySelector("figure").children;
 
 window.onload = main;
 
 function main() {
-  // Add click event to under-construction banner to close it on click
+  // Add click event to under-construction banner to make it disappear when clicked
   document.getElementById("underConstruction").addEventListener(
     "click",
     event => {
@@ -18,18 +16,12 @@ function main() {
     { passive: true }
   );
 
-  // Start gallery showcase animation immediately
+  // Start gallery showcase animation
   startAnimation();
 }
 
 function getImageSource(index) {
   return `img/showcase-${index}.jpg`;
-}
-
-function getNextImage() {
-  let imageSrc = getImageSource(imageIndex);
-  imageIndex = (imageIndex + 1) % numOfImages;
-  return imageSrc;
 }
 
 function getRandomImage() {
@@ -56,21 +48,21 @@ function startAnimation() {
 }
 
 function animationDisappear() {
-  images[0].className = "slideOutRight";
+  images[0].className = "scaleOutWidth";
   images[1].className = "scaleOutWidth";
-  images[2].className = "slideOutLeft";
+  images[2].className = "scaleOutWidth";
 
   images[0].addEventListener("animationend", imagesDisappeared, { passive: true });
 }
 
 function imagesDisappeared() {
-  images[0].src = getRandomImage(); // getNextImage();
-  images[1].src = getRandomImage(); // getNextImage();
-  images[2].src = getRandomImage(); // getNextImage();
+  images[0].src = getRandomImage();
+  images[1].src = getRandomImage();
+  images[2].src = getRandomImage();
 
-  images[0].className = "slideInRight";
+  images[0].className = "scaleInWidth";
   images[1].className = "scaleInWidth";
-  images[2].className = "slideInLeft";
+  images[2].className = "scaleInWidth";
 
   images[0].removeEventListener("animationend", imagesDisappeared);
   images[0].addEventListener("animationend", imagesAppeared, { passive: true });
