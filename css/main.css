@@ -16,6 +16,7 @@
   50% {
     -webkit-transform: scale(1.2);
             transform: scale(1.2);
+    opacity: 1;
   }
 }
 
@@ -23,6 +24,7 @@
   50% {
     -webkit-transform: scale(1.2);
             transform: scale(1.2);
+    opacity: 1;
   }
 }
 
