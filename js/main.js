@@ -1,7 +1,7 @@
 let imageIndexArray = new Array();
 
 const numOfImages = 15;
-const timeout = 2500;
+const timeout = 6660;
 const images = document.querySelector("figure").children;
 
 window.onload = main;
@@ -16,12 +16,10 @@ function main() {
     { passive: true }
   );
 
-  // Start gallery showcase animation
-  startAnimation();
-}
-
-function getImageSource(index) {
-  return `img/showcase-${index}.jpg`;
+  // Start gallery showcase animations
+  setInterval(() => startAnimation(images[0]), timeout);
+  setInterval(() => startAnimation(images[1]), timeout * 1.01);
+  setInterval(() => startAnimation(images[2]), timeout * 1.02);
 }
 
 function getRandomImage() {
@@ -31,44 +29,32 @@ function getRandomImage() {
       imageIndexArray.push(i);
     }
   }
-
   // Get a random index into the imageIndexArray and get the integer there
   const randomIndex = Math.floor(Math.random() * imageIndexArray.length);
   const index = imageIndexArray[randomIndex];
-
   // Filter imageIndexArray to remove chosen index
   imageIndexArray = imageIndexArray.filter(element => element != index);
-
   // return filename for random index
   return getImageSource(index);
 }
 
-function startAnimation() {
-  setTimeout(animationDisappear, timeout);
+function getImageSource(index) {
+  return `img/showcase-${index}.jpg`;
 }
 
-function animationDisappear() {
-  images[0].className = "scaleOutWidth";
-  images[1].className = "scaleOutWidth";
-  images[2].className = "scaleOutWidth";
-
-  images[0].addEventListener("animationend", imagesDisappeared, { passive: true });
+function startAnimation(image) {
+  image.className = "imgDisappear";
+  image.addEventListener("animationend", imageDisappeared, { passive: true });
 }
 
-function imagesDisappeared() {
-  images[0].src = getRandomImage();
-  images[1].src = getRandomImage();
-  images[2].src = getRandomImage();
-
-  images[0].className = "scaleInWidth";
-  images[1].className = "scaleInWidth";
-  images[2].className = "scaleInWidth";
-
-  images[0].removeEventListener("animationend", imagesDisappeared);
-  images[0].addEventListener("animationend", imagesAppeared, { passive: true });
+function imageDisappeared(event) {
+  event.target.removeEventListener("animationend", imageDisappeared);
+  event.target.className = "imgInvisible";
+  event.target.src = getRandomImage();
+  event.target.addEventListener("load", imageLoaded, { passive: true });
 }
 
-function imagesAppeared() {
-  images[0].removeEventListener("animationend", imagesAppeared);
-  startAnimation();
+function imageLoaded(event) {
+  event.target.removeEventListener("load", imageLoaded);
+  event.target.className = "imgAppear";
 }

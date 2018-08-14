@@ -12,79 +12,34 @@
   }
 }
 
-@keyframes imageDisappear1 {
-  100% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-}
-
-@keyframes imageAppear1 {
+@keyframes fadeInBottomToTop {
   0% {
-    transform: translateX(-100%);
+    transform: translateY(100%);
     opacity: 0;
   }
   100% {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
   }
 }
 
-@keyframes imageDisappear2 {
+@keyframes fadeOut {
   100% {
-    transform: scalex(0);
     opacity: 0;
   }
 }
 
-@keyframes imageAppear2 {
-  0% {
-    transform: scalex(0);
-    opacity: 0;
-  }
-  100% {
-    transform: scalex(1);
-    opacity: 1;
-  }
-}
-
-@keyframes imageDisappear3 {
-  100% {
-    transform: translateX(+100%);
-    opacity: 0;
-  }
-}
-
-@keyframes imageAppear3 {
-  0% {
-    transform: translateX(+100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
 $animationTime: 1.5s;
 
 // Animation Classes
-.slideOutRight {
-  animation: imageDisappear3 $animationTime ease-in-out;
+.imgAppear {
+  animation: fadeInBottomToTop $animationTime ease-in;
 }
-.slideOutLeft {
-  animation: imageDisappear1 $animationTime ease-in-out;
+.imgDisappear {
+  animation: fadeOut $animationTime ease-in;
 }
-.scaleOutWidth {
-  animation: imageDisappear2 $animationTime ease-in-out;
-}
-.slideInRight {
-  animation: imageAppear3 $animationTime ease-in-out;
-}
-.slideInLeft {
-  animation: imageAppear1 $animationTime ease-in-out;
-}
-.scaleInWidth {
-  animation: imageAppear2 $animationTime ease-in-out;
+.imgInvisible {
+  opacity: 0;
 }
 
 // Color Palette
@@ -207,33 +162,32 @@ figure {
   position: relative;
   top: -88px;
   height: 128px;
+  margin-bottom: -88px;
   background-color: #f4f4f4;
   clip-path: ellipse(100% 100% at 75% 100%);
+
+  h1 {
+    padding-top: 1em;
+    text-align: center;
+    color: $colorC;
+  }
 }
 
 // Main site content
 main {
   position: relative;
-  top: -166px;
-  margin-bottom: -166px;
   background-color: #f4f4f4;
   padding: 0em 1em 5em 1em;
 
-  h1 {
-    text-align: center;
-    animation: pop 1s ease-in-out 0s infinite forwards;
-    color: $colorC;
-  }
-
   p {
     color: $colorC;
-    padding: 4em 8em;
+    padding: 0em 4em;
     line-height: 1.7em;
     text-align: justify;
 
-    &:nth-child(odd) {
+    &:nth-child(even) {
       color: darkblue;
-      padding: 4em 16em;
+      padding: 1em 8em;
       text-align: center;
     }
   }
@@ -252,7 +206,6 @@ main {
   padding: 2em;
 
   li {
-    // justify-self: center;
     font-weight: 300;
     font-size: 1em;
     letter-spacing: 0.02em;
