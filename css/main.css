@@ -67,13 +67,15 @@
 }
 
 .imgAppear {
-  -webkit-animation: fadeInBottomToTop 1.5s ease-in;
-          animation: fadeInBottomToTop 1.5s ease-in;
+  -webkit-animation: fadeInBottomToTop 1.666s ease-in;
+          animation: fadeInBottomToTop 1.666s ease-in;
+  will-change: transform;
 }
 
 .imgDisappear {
-  -webkit-animation: fadeOut 1.5s ease-in;
-          animation: fadeOut 1.5s ease-in;
+  -webkit-animation: fadeOut 1.666s ease-in;
+          animation: fadeOut 1.666s ease-in;
+  will-change: transform;
 }
 
 .imgInvisible {
@@ -90,9 +92,8 @@
 body {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  overflow-x: hidden;
-  background: -webkit-gradient(linear, left top, left bottom, from(#373662), color-stop(#888888), to(#366261));
-  background: linear-gradient(to bottom, #373662, #888888, #366261);
+  background: -webkit-gradient(linear, left top, left bottom, from(#373662), to(#366261));
+  background: linear-gradient(to bottom, #373662, #366261);
 }
 
 #underConstruction {
@@ -185,8 +186,7 @@ figure {
 }
 
 figure img {
-  -webkit-box-shadow: 2px 2px 2px 4px rgba(0, 0, 0, 0.3);
-          box-shadow: 2px 2px 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: -1;
 }
 
 figure img:nth-child(1) {
@@ -196,6 +196,8 @@ figure img:nth-child(1) {
 }
 
 figure img:nth-child(2) {
+  -ms-grid-column-align: center;
+      justify-self: center;
   z-index: -1;
 }
 

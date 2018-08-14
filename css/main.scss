@@ -29,14 +29,16 @@
   }
 }
 
-$animationTime: 1.5s;
-
 // Animation Classes
+$animationTime: 1.666s;
+
 .imgAppear {
   animation: fadeInBottomToTop $animationTime ease-in;
+  will-change: transform;
 }
 .imgDisappear {
   animation: fadeOut $animationTime ease-in;
+  will-change: transform;
 }
 .imgInvisible {
   opacity: 0;
@@ -60,8 +62,7 @@ $colorE: #222222;
 body {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  overflow-x: hidden;
-  background: linear-gradient(to bottom, $colorB, $colorC, $colorD);
+  background: linear-gradient(to bottom, $colorB, $colorD);
 }
 
 // Under Construction banner
@@ -143,12 +144,14 @@ figure {
   justify-content: center;
 
   img {
-    box-shadow: 2px 2px 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: -1;
+
     &:nth-child(1) {
       justify-self: end;
       z-index: -2;
     }
     &:nth-child(2) {
+      justify-self: center;
       z-index: -1;
     }
     &:nth-child(3) {

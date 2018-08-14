@@ -18,8 +18,8 @@ function main() {
 
   // Start gallery showcase animations
   setInterval(() => startAnimation(images[0]), timeout);
-  setInterval(() => startAnimation(images[1]), timeout * 1.01);
-  setInterval(() => startAnimation(images[2]), timeout * 1.02);
+  setInterval(() => startAnimation(images[1]), timeout);
+  setInterval(() => startAnimation(images[2]), timeout);
 }
 
 function getRandomImage() {
