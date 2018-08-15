@@ -80,7 +80,7 @@ header {
   grid-template-columns: 128px max-content max-content 1fr;
   background: linear-gradient(to right, white, $colorB);
   align-items: center;
-  clip-path: ellipse(100% 100% at 25% 0%);
+  clip-path: ellipse(150% 100% at 25% 0%);
 
   img {
     width: 128px;
@@ -137,7 +137,7 @@ a {
 // Image gallery showcase
 figure {
   position: relative;
-  top: -44px;
+  top: -17px;
   overflow-x: hidden;
   display: grid;
   grid-template-columns: 1fr 810px 1fr;
@@ -167,7 +167,7 @@ figure {
   height: 128px;
   margin-bottom: -88px;
   background-color: #f4f4f4;
-  clip-path: ellipse(100% 100% at 75% 100%);
+  clip-path: ellipse(150% 100% at 75% 100%);
 
   h1 {
     padding-top: 1em;
@@ -200,7 +200,7 @@ main {
 .information {
   background: linear-gradient(to right, black, $colorD);
   color: $colorC;
-  clip-path: ellipse(100% 100% at 25% 0%);
+  clip-path: ellipse(150% 100% at 25% 0%);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr 40px;
