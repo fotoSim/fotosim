@@ -175,7 +175,7 @@ a:active {
 figure {
   position: relative;
   top: -17px;
-  overflow-x: hidden;
+  overflow: hidden;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 810px 1fr;
@@ -192,26 +192,23 @@ figure img {
 figure img:nth-child(1) {
   -ms-grid-column-align: end;
       justify-self: end;
-  z-index: -2;
 }
 
 figure img:nth-child(2) {
   -ms-grid-column-align: center;
       justify-self: center;
-  z-index: -1;
 }
 
 figure img:nth-child(3) {
   -ms-grid-column-align: start;
       justify-self: start;
-  z-index: -2;
 }
 
 .showcaseBase {
   position: relative;
-  top: -88px;
+  top: -35px;
   height: 128px;
-  margin-bottom: -88px;
+  margin-bottom: -35px;
   background-color: #f4f4f4;
   -webkit-clip-path: ellipse(150% 100% at 75% 100%);
           clip-path: ellipse(150% 100% at 75% 100%);
@@ -246,8 +243,8 @@ main p:nth-child(even) {
   background: -webkit-gradient(linear, left top, right top, from(black), to(#366261));
   background: linear-gradient(to right, black, #366261);
   color: #888888;
-  -webkit-clip-path: ellipse(150% 100% at 25% 0%);
-          clip-path: ellipse(150% 100% at 25% 0%);
+  -webkit-clip-path: ellipse(200% 100% at 25% 0%);
+          clip-path: ellipse(200% 100% at 25% 0%);
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[4];

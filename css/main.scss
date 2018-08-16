@@ -138,7 +138,7 @@ a {
 figure {
   position: relative;
   top: -17px;
-  overflow-x: hidden;
+  overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 810px 1fr;
   justify-content: center;
@@ -148,24 +148,21 @@ figure {
 
     &:nth-child(1) {
       justify-self: end;
-      z-index: -2;
     }
     &:nth-child(2) {
       justify-self: center;
-      z-index: -1;
     }
     &:nth-child(3) {
       justify-self: start;
-      z-index: -2;
     }
   }
 }
 
 .showcaseBase {
   position: relative;
-  top: -88px;
+  top: -35px;
   height: 128px;
-  margin-bottom: -88px;
+  margin-bottom: -35px;
   background-color: #f4f4f4;
   clip-path: ellipse(150% 100% at 75% 100%);
 
@@ -200,7 +197,7 @@ main {
 .information {
   background: linear-gradient(to right, black, $colorD);
   color: $colorC;
-  clip-path: ellipse(150% 100% at 25% 0%);
+  clip-path: ellipse(200% 100% at 25% 0%);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr 40px;
