@@ -110,8 +110,8 @@ header {
     margin-right: 14px;
 
     a {
-      margin-left: 0.7em;
-      font-size: 1.4em;
+      margin-left: 0.5em;
+      font-size: 1.2em;
       font-weight: 300;
       color: #aaaaaa;
     }
@@ -134,17 +134,19 @@ a {
   }
 }
 
+$imageWidth: 720px;
 // Image gallery showcase
 figure {
   position: relative;
   top: -17px;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1fr 810px 1fr;
+  grid-template-columns: 1fr $imageWidth 1fr;
   justify-content: center;
 
   img {
     z-index: -1;
+    width: $imageWidth;
 
     &:nth-child(1) {
       justify-self: end;
