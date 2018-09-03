@@ -229,15 +229,9 @@ main {
 
 main p {
   color: #888888;
-  padding: 0em 4em;
+  padding: 0.5em 8em;
   line-height: 1.7em;
   text-align: justify;
-}
-
-main p:nth-child(even) {
-  color: darkblue;
-  padding: 1em 8em;
-  text-align: center;
 }
 
 .information {

@@ -183,15 +183,9 @@ main {
 
   p {
     color: $colorC;
-    padding: 0em 4em;
+    padding: 0.5em 8em;
     line-height: 1.7em;
     text-align: justify;
-
-    &:nth-child(even) {
-      color: darkblue;
-      padding: 1em 8em;
-      text-align: center;
-    }
   }
 }
 
